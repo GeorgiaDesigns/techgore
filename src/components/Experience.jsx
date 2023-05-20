@@ -12,7 +12,7 @@ export const Experience = () => {
       style={{ height: "100vh" }}
     >
       <Suspense fallback={null}>
-        <ScrollControls horizontal pages={2.5}>
+        <ScrollControls horizontal pages={3}>
           <Scroll>
             <ambientLight intensity={0.5} />
             <spotLight
@@ -26,12 +26,12 @@ export const Experience = () => {
             <Scene />
             <ContactShadows
               rotation-x={Math.PI / 2}
-              position={[0, -1.4, 0]}
+              position={[0, 0, 0]}
               opacity={0.75}
-              width={10}
+              width={200}
               height={10}
-              blur={2.6}
-              far={2}
+              blur={5}
+              far={10}
             />
           </Scroll>
           <Scroll html>

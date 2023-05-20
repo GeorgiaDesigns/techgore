@@ -7,7 +7,7 @@ export default function Scene() {
       {MODEL_URLS.map((item, index) => (
         <Model
           key={item.id}
-          position={[index * 100, -100, 0]}
+          position={[index * 120, -100, 0]}
           id={item.id}
           url={item.url}
         />

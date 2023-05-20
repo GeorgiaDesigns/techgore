@@ -19,7 +19,6 @@ const MODEL_URLS = [
   "/models/T-shirt black.glb",
   "/models/T-shirt green.glb",
   "/models/Underwear.glb",
-  "/models/Peixe-ogro.glb",
 ];
 
 export default function Scene() {

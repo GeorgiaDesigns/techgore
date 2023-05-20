@@ -7,9 +7,7 @@ import React, { Suspense } from "react";
 import Scene from "./components/Scene";
 import ProductDetail from "./pages/ProductDetail";
 import NotFound from "./pages/NotFound";
-import { Preload } from "@react-three/drei";
-import { ScrollControls, Scroll } from "./utils/ScrollControls";
-import { Router, Route, Switch } from "wouter";
+import { Route, Switch } from "wouter";
 
 function App() {
   return (
@@ -18,6 +16,12 @@ function App() {
       <Route path="/:productId" component={ProductDetail} />
       <Route component={NotFound} />
     </Switch>
+
+    // <Switch>
+    //   <Route path="/~ensait00046" component={Home} />
+    //   <Route path="/~ensait00046/:productId" component={ProductDetail} />
+    //   <Route component={NotFound} />
+    // </Switch>
   );
 }
 

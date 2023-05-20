@@ -1,7 +1,7 @@
 import { useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 
-import { useRef, useEffect, useLayoutEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Buffer } from "buffer";
 

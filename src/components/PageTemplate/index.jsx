@@ -28,7 +28,6 @@ const Page = ({ sections }) => {
       const scrollTop = scrollContainerRef.current.scrollTop;
       setOffsetY(scrollTop);
       const newActiveSection = Math.floor(scrollTop / window.innerHeight);
-      console.log(scrollTop);
       setActiveSection(newActiveSection);
     };
 

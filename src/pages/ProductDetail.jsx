@@ -8,8 +8,6 @@ import {
   Environment,
   ContactShadows,
 } from "@react-three/drei";
-import { Suspense } from "react";
-import { Preload } from "@react-three/drei";
 import { HexColorPicker } from "react-colorful";
 
 export default function ProductDetail() {
@@ -33,6 +31,8 @@ export default function ProductDetail() {
 
   return (
     <>
+      <BackButton model={gltf.scene} />
+
       <Canvas
         shadows
         gl={{ antialias: false }}
