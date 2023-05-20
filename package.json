@@ -1,0 +1,37 @@
+{
+  "name": "techgore",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.64.0",
+    "@react-three/fiber": "^8.12.0",
+    "buffer": "^6.0.3",
+    "global": "^4.4.0",
+    "gsap": "^3.11.5",
+    "react": "^18.2.0",
+    "react-colorful": "^5.6.1",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "styled-components": "^6.0.0-rc.1",
+    "tailwind": "^4.0.0",
+    "three": "^0.152.0",
+    "valtio": "^1.10.4",
+    "wouter": "^2.10.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.1",
+    "vite": "^4.2.0"
+  },
+  "homepage": "http://ecom.ensait.fr/~ensait00046/"
+}

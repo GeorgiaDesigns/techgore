@@ -1,0 +1,12 @@
+[
+  { "id": "look1", "url": "/models/Look 1 com avatar.glb" },
+  { "id": "coelte", "url": "/models/Coelte.glb" },
+  { "id": "casaco", "url": "/models/Casaco.glb" },
+  { "id": "colt", "url": "/models/Colt.glb" },
+  { "id": "look2", "url": "/models/Look2.glb" },
+  { "id": "pants", "url": "/models/Pants.glb" },
+  { "id": "tshirtblack", "url": "/models/T-shirt black.glb" },
+  { "id": "tshirtgreen", "url": "/models/T-shirt green.glb" },
+  { "id": "underwear", "url": "/models/Underwear.glb" },
+  { "id": "peixeogro", "url": "/models/Peixe-ogro.glb" }
+]
