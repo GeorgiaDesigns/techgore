@@ -5,7 +5,7 @@ const SHOP_DATA = [
     position: [0, -120, 0],
     stock: 12,
     qrCode: "https://go.echo3d.co/84Vx",
-    imageUrl: "/models/Coelte.glb",
+    url: "/models/Coelte.glb",
     price: 250,
   },
   {
@@ -14,7 +14,7 @@ const SHOP_DATA = [
     position: [0, -120, 0],
     stock: 12,
     qrCode: "https://go.echo3d.co/84Vx",
-    imageUrl: "/models/Casaco.glb",
+    url: "/models/Casaco.glb",
     price: 250,
   },
   {
@@ -23,7 +23,7 @@ const SHOP_DATA = [
     position: [0, -120, 0],
     stock: 12,
     qrCode: "https://go.echo3d.co/84Vx",
-    imageUrl: "/models/Colt.glb",
+    url: "/models/Colt.glb",
     price: 250,
   },
   {
@@ -32,7 +32,7 @@ const SHOP_DATA = [
     position: [0, -120, 0],
     stock: 12,
     qrCode: "https://go.echo3d.co/84Vx",
-    imageUrl: "/models/Pants.glb",
+    url: "/models/Pants.glb",
     price: 250,
   },
   {
@@ -41,7 +41,7 @@ const SHOP_DATA = [
     position: [0, -120, 0],
     stock: 12,
     qrCode: "https://go.echo3d.co/84Vx",
-    imageUrl: "/models/T-shirt black.glb",
+    url: "/models/T-shirt black.glb",
     price: 250,
   },
   {
@@ -50,7 +50,7 @@ const SHOP_DATA = [
     position: [0, -120, 0],
     stock: 12,
     qrCode: "https://go.echo3d.co/84Vx",
-    imageUrl: "/models/T-shirt green.glb",
+    url: "/models/T-shirt green.glb",
     price: 250,
   },
   {
@@ -59,7 +59,7 @@ const SHOP_DATA = [
     position: [0, -120, 0],
     stock: 12,
     qrCode: "https://go.echo3d.co/84Vx",
-    imageUrl: "/models/Underwear.glb",
+    url: "/models/Underwear.glb",
     price: 250,
   },
   {
@@ -68,7 +68,7 @@ const SHOP_DATA = [
     position: [0, -120, 0],
     stock: 12,
     qrCode: "https://go.echo3d.co/84Vx",
-    imageUrl: "/models/Look2.glb",
+    url: "/models/Look2.glb",
     price: 250,
   },
 ];

@@ -15,10 +15,13 @@ export default function Model({ position, id, url, ...props }) {
     modelInstance.position.set(position[0], position[1], position[2]);
     modelInstance.add(gltf.scene);
     objectRef.current.add(modelInstance);
+
+    return () => {
+      modelInstance.remove(gltf.scene);
+    };
   }, [gltf.scene, position]);
 
   function handleModels(id) {
-    modelInstance.remove(gltf.scene);
     setLocation(id);
   }
 

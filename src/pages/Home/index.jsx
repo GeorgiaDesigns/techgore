@@ -2,7 +2,6 @@ import React from "react";
 import Page from "../../components/PageTemplate";
 import { Main } from "../Main";
 import { Experience } from "../../components/Experience";
-import * as S from "./styles";
 
 const Home = () => {
   return (

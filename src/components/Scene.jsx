@@ -1,10 +1,21 @@
 import Model from "./Model";
-import MODEL_URLS from "../MODEL_URLS.json";
+import { selectCollections } from "../redux/shop/selectors";
+import { connect } from "react-redux";
+import { useRef, useEffect } from "react";
 
-export default function Scene() {
+function Scene({ collections }) {
+  const objectRef = useRef();
+
+  // useEffect(() => {
+  //   console.log(objectRef.current);
+  //   return () => {
+  //     objectRef.current.clear();
+  //   };
+  // }, []);
+
   return (
-    <group>
-      {MODEL_URLS.map((item, index) => (
+    <group ref={objectRef}>
+      {collections.map((item, index) => (
         <Model
           key={item.id}
           position={[index * 120, -100, 0]}
@@ -15,3 +26,9 @@ export default function Scene() {
     </group>
   );
 }
+
+const mapStateToProps = (state) => ({
+  collections: selectCollections(state),
+});
+
+export default connect(mapStateToProps)(Scene);

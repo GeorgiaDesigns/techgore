@@ -3,6 +3,7 @@ import MenuButton from "../MenuButton";
 import "./styles.css";
 import Background from "../../components/Background";
 import styled from "styled-components";
+import CartDropdown from "../CartDropdown";
 
 const Lady = styled.img`
   position: absolute;
@@ -59,6 +60,7 @@ const Page = ({ sections }) => {
             />
           </g>
         </svg>
+        <CartDropdown />
 
         <svg
           className="arrows"

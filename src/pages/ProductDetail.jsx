@@ -1,7 +1,6 @@
 import CustomizableModel from "../components/CustomizableModel";
 import { useRoute } from "wouter";
-import { useEffect, useState } from "react";
-import MODEL_URLS from "../MODEL_URLS.json";
+import { useEffect, useState, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   PresentationControls,
@@ -9,19 +8,25 @@ import {
   ContactShadows,
 } from "@react-three/drei";
 import { HexColorPicker } from "react-colorful";
+import { selectCollections } from "../redux/shop/selectors";
+import { connect } from "react-redux";
+import { addItem } from "../redux/cart/cart.actions";
+import { selectCartItems } from "../redux/cart/cart.selectors";
 
-export default function ProductDetail() {
+function ProductDetail({ collections, cartItems, addItem }) {
   const [match, params] = useRoute("/:productId");
   const { productId } = params;
-  const [productUrl, setProductUrl] = useState(null);
+  const [product, setProduct] = useState({});
   const [meshColors, setMeshColors] = useState({});
   const [editingMesh, setEditingMesh] = useState({});
-
+  const modelRef = useRef();
   useEffect(() => {
-    const currentModel = MODEL_URLS.find((item) => item.id === productId);
-    setProductUrl(currentModel.url);
+    const currentModel = collections.find((item) => item.id == productId);
+    setProduct(currentModel);
   }, [productId]);
-
+  {
+    console.log(product);
+  }
   const updateMeshColors = (newMeshColors) => {
     setMeshColors((prevColors) => ({
       ...prevColors,
@@ -31,7 +36,13 @@ export default function ProductDetail() {
 
   return (
     <>
-      <BackButton model={gltf.scene} />
+      <button
+        style={{ position: "absolute", zIndex: 10 }}
+        onClick={() => modelRef.current.navigate()}
+      >
+        {" "}
+        {"<"}{" "}
+      </button>
 
       <Canvas
         shadows
@@ -56,9 +67,10 @@ export default function ProductDetail() {
           azimuth={[-Math.PI / 1.4, Math.PI / 2]}
         >
           <CustomizableModel
+            ref={modelRef}
             position={[0, -120, 0]}
             id={productId}
-            url={productUrl}
+            url={product.url}
             meshColors={meshColors}
             setMeshColors={setMeshColors}
             updateCurrentMesh={setEditingMesh}
@@ -82,6 +94,27 @@ export default function ProductDetail() {
           updateMeshColors(color);
         }}
       />
+
+      <button
+        style={{ position: "absolute", zIndex: 10, bottom: 10 }}
+        onClick={() => {
+          addItem(product);
+          // modelRef.current.navigate();
+        }}
+      >
+        Add to cart and continue shopping
+      </button>
     </>
   );
 }
+
+const mapStateToProps = (state) => ({
+  collections: selectCollections(state),
+  cartItems: selectCartItems,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (product) => dispatch(addItem(product)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
