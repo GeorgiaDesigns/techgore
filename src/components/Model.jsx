@@ -17,11 +17,13 @@ export default function Model({ position, id, url, ...props }) {
     objectRef.current.add(modelInstance);
 
     return () => {
+      objectRef.current.clear();
       modelInstance.remove(gltf.scene);
     };
   }, [gltf.scene, position]);
 
   function handleModels(id) {
+    modelInstance.remove(gltf.scene);
     setLocation(id);
   }
 

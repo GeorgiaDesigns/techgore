@@ -5,7 +5,7 @@ import "./App.css";
 // import { Scroll } from "@react-three/drei";
 import React, { Suspense } from "react";
 import Scene from "./components/Scene";
-import ProductDetail from "./pages/ProductDetail";
+import ProductDetail from "./components/ProductDetail";
 import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 import { Route, Switch } from "wouter";
