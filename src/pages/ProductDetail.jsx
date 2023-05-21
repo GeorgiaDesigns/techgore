@@ -24,9 +24,7 @@ function ProductDetail({ collections, cartItems, addItem }) {
     const currentModel = collections.find((item) => item.id == productId);
     setProduct(currentModel);
   }, [productId]);
-  {
-    console.log(product);
-  }
+
   const updateMeshColors = (newMeshColors) => {
     setMeshColors((prevColors) => ({
       ...prevColors,
@@ -68,7 +66,7 @@ function ProductDetail({ collections, cartItems, addItem }) {
         >
           <CustomizableModel
             ref={modelRef}
-            position={[0, -120, 0]}
+            position={product.position}
             id={productId}
             url={product.url}
             meshColors={meshColors}
@@ -99,7 +97,7 @@ function ProductDetail({ collections, cartItems, addItem }) {
         style={{ position: "absolute", zIndex: 10, bottom: 10 }}
         onClick={() => {
           addItem(product);
-          // modelRef.current.navigate();
+          modelRef.current.navigate();
         }}
       >
         Add to cart and continue shopping

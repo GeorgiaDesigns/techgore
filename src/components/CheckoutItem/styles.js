@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const CartItem = styled.div`
+export const CheckoutItem = styled.div`
   width: 100%;
   display: flex;
   height: 80px;

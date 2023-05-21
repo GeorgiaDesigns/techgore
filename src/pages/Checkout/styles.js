@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const CartItem = styled.div`
+export const CheckoutItem = styled.div`
   width: 100%;
   display: flex;
   height: 80px;
@@ -29,7 +29,7 @@ border-radius: 15px;
     }
 `;
 
-export const TrashButton = styled.button``;
+export const ProductHeader = styled.h1``;
 
 export const QtyControler = styled.span`
   display: flex;
@@ -40,4 +40,19 @@ export const QtyControler = styled.span`
   div {
     cursor: pointer;
   }
+`;
+
+export const CheckoutContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 15px;
+
+  padding: 2rem 0.2rem;
+
+  background-color: #131313;
+  right: -2rem;
+  z-index: 5;
+  box-shadow: inset -4px 5px 10px 0px rgba(70, 246, 8, 0.72);
+  align-items: center;
 `;

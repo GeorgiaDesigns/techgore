@@ -25,9 +25,8 @@
   /* background-image: linear-gradient(0deg, #894589 0%, #111111 100%); */
 }
 
-div:first-child {
+#root div:first-child {
   touch-action: none;
-  cursor: inherit !important;
 }
 
 .picker {

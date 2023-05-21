@@ -32,7 +32,6 @@ const CustomizableModel = forwardRef(
     const [location, setLocation] = useLocation();
 
     const navigate = () => {
-      modelInstance.remove(gltf.scene);
       setLocation("/");
     };
 
@@ -64,7 +63,10 @@ const CustomizableModel = forwardRef(
       setMeshColors(meshColors);
 
       objectRef.current.add(modelInstance);
-    }, [gltf.scene.children]);
+      return () => {
+        modelInstance.remove(gltf.scene);
+      };
+    }, []);
 
     useEffect(() => {
       gltf.scene.traverse((node) => {
