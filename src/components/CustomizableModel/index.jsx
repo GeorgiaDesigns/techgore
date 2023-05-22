@@ -13,38 +13,27 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Buffer } from "buffer";
 
 const CustomizableModel = forwardRef(
-  (
-    {
-      position,
-      id,
-      url,
-      meshColors,
-      setMeshColors,
-      updateCurrentMesh,
-      ...props
-    },
-    ref
-  ) => {
+  ({ model, meshColors, setMeshColors, updateCurrentMesh, ...props }, ref) => {
     const objectRef = useRef();
-    const gltf = useLoader(GLTFLoader, url);
+    // const gltf = useLoader(GLTFLoader, url);
     const [hovered, set] = useState(null);
-    const modelInstance = new THREE.Object3D();
-    const [location, setLocation] = useLocation();
+    const modelInstance = model;
+    // const [location, setLocation] = useLocation();
 
-    const navigate = () => {
-      setLocation("/");
-    };
+    // const navigate = () => {
+    //   setLocation("/");
+    // };
 
-    useImperativeHandle(ref, () => ({
-      navigate,
-    }));
+    // useImperativeHandle(ref, () => ({
+    //   navigate,
+    // }));
 
     useEffect(() => {
-      modelInstance.position.set(position[0], position[1], position[2]);
-      modelInstance.add(gltf.scene);
-
+      // modelInstance.add(gltf.scene);
+      console.log(modelInstance);
+      modelInstance.position.set([120, -100, 0]);
       const meshColors = {};
-      gltf.scene.traverse((child) => {
+      modelInstance.traverse((child) => {
         if (
           child.isMesh &&
           child.material instanceof THREE.MeshStandardMaterial
@@ -63,13 +52,13 @@ const CustomizableModel = forwardRef(
       setMeshColors(meshColors);
 
       objectRef.current.add(modelInstance);
-      return () => {
-        modelInstance.remove(gltf.scene);
-      };
+      // return () => {
+      //   modelInstance.remove(gltf.scene);
+      // };
     }, []);
 
     useEffect(() => {
-      gltf.scene.traverse((node) => {
+      modelInstance.traverse((node) => {
         if (node instanceof THREE.Mesh) {
           const meshName = node.material.name;
           const color = meshColors[meshName];

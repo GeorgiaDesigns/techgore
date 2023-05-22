@@ -13,17 +13,17 @@ import { connect } from "react-redux";
 import { addItem } from "../redux/cart/cart.actions";
 import { selectCartItems } from "../redux/cart/cart.selectors";
 
-function ProductDetail({ collections, cartItems, addItem }) {
-  const [match, params] = useRoute("/:productId");
-  const { productId } = params;
-  const [product, setProduct] = useState({});
+function ProductDetail({ model, setSelectedModel, addItem }) {
+  // const [match, params] = useRoute("/:productId");
+  // const { productId } = params;
+  const [product, setProduct] = useState(model);
   const [meshColors, setMeshColors] = useState({});
   const [editingMesh, setEditingMesh] = useState({});
-  const modelRef = useRef();
-  useEffect(() => {
-    const currentModel = collections.find((item) => item.id == productId);
-    setProduct(currentModel);
-  }, [productId]);
+
+  // useEffect(() => {
+  //   const currentModel = collections.find((item) => item.id == productId);
+  //   setProduct(currentModel);
+  // }, [productId]);
 
   const updateMeshColors = (newMeshColors) => {
     setMeshColors((prevColors) => ({
@@ -34,13 +34,13 @@ function ProductDetail({ collections, cartItems, addItem }) {
 
   return (
     <>
-      <button
+      {/* <button
         style={{ position: "absolute", zIndex: 10 }}
-        onClick={() => modelRef.current.navigate()}
+        onClick={() => setSelectedModel(null)}
       >
         {" "}
         {"<"}{" "}
-      </button>
+      </button> */}
 
       <Canvas
         shadows
@@ -56,6 +56,7 @@ function ProductDetail({ collections, cartItems, addItem }) {
           shadow-mapSize={[512, 512]}
           castShadow
         />
+
         <PresentationControls
           global
           config={{ mass: 2, tension: 300 }}
@@ -65,10 +66,7 @@ function ProductDetail({ collections, cartItems, addItem }) {
           azimuth={[-Math.PI / 1.4, Math.PI / 2]}
         >
           <CustomizableModel
-            ref={modelRef}
-            position={product.position}
-            id={productId}
-            url={product.url}
+            model={product}
             meshColors={meshColors}
             setMeshColors={setMeshColors}
             updateCurrentMesh={setEditingMesh}
@@ -94,10 +92,10 @@ function ProductDetail({ collections, cartItems, addItem }) {
       />
 
       <button
-        style={{ position: "absolute", zIndex: 10, bottom: 10 }}
+        // style={{ position: "absolute", zIndex: 10, bottom: 10 }}
         onClick={() => {
           addItem(product);
-          modelRef.current.navigate();
+          setSelectedModel(null);
         }}
       >
         Add to cart and continue shopping
@@ -115,4 +113,4 @@ const mapDispatchToProps = (dispatch) => ({
   addItem: (product) => dispatch(addItem(product)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
+export default connect(null, mapDispatchToProps)(ProductDetail);

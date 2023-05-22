@@ -1,7 +1,3 @@
-import Model from "../components/Model";
-import { useRoute } from "wouter";
-import { useEffect, useState } from "react";
-
 export default function NotFound() {
   return (
     <div>

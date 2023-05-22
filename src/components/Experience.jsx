@@ -3,9 +3,15 @@ import { Suspense } from "react";
 import { Preload } from "@react-three/drei";
 import { ScrollControls, Scroll, ContactShadows } from "@react-three/drei";
 import Scene from "./Scene";
+import { useState } from "react";
+import ProductDetail from "./ProductDetail";
 
 export const Experience = () => {
-  return (
+  const [selectedModel, setSelectedModel] = useState(null);
+
+  return selectedModel ? (
+    <ProductDetail model={selectedModel} setSelectedModel={setSelectedModel} />
+  ) : (
     <Canvas
       gl={{ antialias: false }}
       dpr={[1, 1.5]}
@@ -23,7 +29,7 @@ export const Experience = () => {
               castShadow
             />
 
-            <Scene />
+            <Scene setSelectedModel={setSelectedModel} />
             <ContactShadows
               rotation-x={Math.PI / 2}
               position={[0, 0, 0]}
@@ -34,26 +40,26 @@ export const Experience = () => {
               far={10}
             />
           </Scroll>
-          <Scroll html>
+          {/* <Scroll html>
             <h1 style={{ position: "absolute", top: "20vh", left: "-75vw" }}>
-              home
+            home
             </h1>
             <h1 style={{ position: "absolute", top: "20vh", left: "25vw" }}>
-              to
+            to
             </h1>
             <h1 style={{ position: "absolute", top: "20vh", left: "125vw" }}>
-              be
+            be
             </h1>
             <h1 style={{ position: "absolute", top: "20vh", left: "225vw" }}>
-              home
+            home
             </h1>
             <h1 style={{ position: "absolute", top: "20vh", left: "325vw" }}>
-              to
+            to
             </h1>
             <h1 style={{ position: "absolute", top: "20vh", left: "425vw" }}>
-              be
+            be
             </h1>
-          </Scroll>
+          </Scroll> */}
         </ScrollControls>
         <Preload />
       </Suspense>

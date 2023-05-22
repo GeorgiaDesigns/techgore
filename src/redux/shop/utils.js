@@ -1,17 +1,4 @@
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { useLoader } from "@react-three/fiber";
-import * as THREE from "three";
-
 export const addObjectToStore = (object) => {
-  const gltf = useLoader(GLTFLoader, object.url);
-  const modelInstance = new THREE.Object3D();
-  modelInstance.position.set(
-    object.position[0],
-    object.position[1],
-    object.position[2]
-  );
-  modelInstance.add(gltf.scene);
-
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === cartItemToAdd.id
   );
