@@ -1,7 +1,12 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense } from "react";
 import { Preload } from "@react-three/drei";
-import { ScrollControls, Scroll, ContactShadows } from "@react-three/drei";
+import {
+  ScrollControls,
+  Scroll,
+  Environment,
+  ContactShadows,
+} from "@react-three/drei";
 import Scene from "./Scene";
 import { useState } from "react";
 import ProductDetail from "./ProductDetail";
@@ -13,9 +18,10 @@ export const Experience = () => {
     <ProductDetail model={selectedModel} setSelectedModel={setSelectedModel} />
   ) : (
     <Canvas
+      className="horizontal"
       gl={{ antialias: false }}
       dpr={[1, 1.5]}
-      style={{ height: "100vh" }}
+      camera={{ position: [0, 0, 4], fov: 50 }}
     >
       <Suspense fallback={null}>
         <ambientLight intensity={0.5} />

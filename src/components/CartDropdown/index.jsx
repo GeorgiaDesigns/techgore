@@ -14,15 +14,15 @@ const CartDropdown = ({ cartItems }) => {
   const [location, setLocation] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  // useEffect(() => {
-  //   const handler = () => {
-  //     if (isOpen) setIsOpen(false);
-  //   };
-  //   document.addEventListener("click", handler);
-  //   return () => {
-  //     document.removeEventListener("click", handler);
-  //   };
-  // }, [isOpen]);
+  useEffect(() => {
+    const handler = () => {
+      if (isOpen) setIsOpen(false);
+    };
+    document.addEventListener("click", handler);
+    return () => {
+      document.removeEventListener("click", handler);
+    };
+  }, [isOpen]);
 
   return (
     <S.Wrapper isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>

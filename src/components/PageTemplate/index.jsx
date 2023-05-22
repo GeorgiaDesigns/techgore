@@ -1,9 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import MenuButton from "../MenuButton";
 import "./styles.css";
 import Background from "../../components/Background";
 import styled from "styled-components";
 import CartDropdown from "../CartDropdown";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Lady = styled.img`
   position: absolute;
@@ -17,6 +21,7 @@ const Page = ({ sections }) => {
   const [offsetY, setOffsetY] = useState(0);
 
   const scrollContainerRef = useRef(null);
+  // const horizontalSectionsRef = useRef([]);
 
   const scrollToSection = (index) => {
     setActiveSection(index);
@@ -30,6 +35,9 @@ const Page = ({ sections }) => {
       setOffsetY(scrollTop);
       const newActiveSection = Math.floor(scrollTop / window.innerHeight);
       setActiveSection(newActiveSection);
+
+      // if (sections[newActiveSection].props.horizontal)
+      //   scrollHorizontal(horizontalSections[0]);
     };
 
     scrollContainerRef.current.addEventListener("scroll", handleScroll);
@@ -38,6 +46,27 @@ const Page = ({ sections }) => {
         scrollContainerRef.current.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const slider = useRef();
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      let panels = gsap.utils.toArray(".horizontal");
+      gsap.to(panels, {
+        xPercent: -100 * (panels.length - 1),
+        ease: "none",
+        lazy: false,
+        scrollTrigger: {
+          trigger: slider.current,
+          pin: true,
+          scrub: 1,
+          snap: 1 / (panels.length - 1),
+          end: () => "+=" + slider.current.offsetWidth,
+        },
+      });
+    }, scrollContainerRef);
+    return () => ctx.revert();
+  });
 
   return (
     <div id="pageContainer" style={{ overflow: "hidden" }}>
@@ -74,21 +103,21 @@ const Page = ({ sections }) => {
       <div
         ref={scrollContainerRef}
         style={{
-          scrollSnapType: "y mandatory",
           height: "100vh",
-          overflowY: sections[activeSection].props.horizontal
-            ? "hidden"
-            : "scroll",
+          overflowY: "scroll",
         }}
       >
-        {sections.map((section, index) => (
-          <div
-            key={index}
-            style={{ scrollSnapAlign: "start", height: "100vh" }}
-          >
-            {section}
-          </div>
-        ))}
+        {sections.map((section, index) =>
+          section.props.horizontal ? (
+            <div key={index} ref={slider} className="container">
+              {section}
+            </div>
+          ) : (
+            <div key={index} className="vertical">
+              {section}
+            </div>
+          )
+        )}
       </div>
       <nav>
         {sections.map((section, index) => (

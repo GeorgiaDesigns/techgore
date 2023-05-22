@@ -30,6 +30,27 @@ nav {
   filter: drop-shadow(0px 0px 10px limegreen);
 }
 
+.container {
+  width: 400vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.horizontal {
+  width: 100vw;
+  height: 100vh;
+  background: yellow;
+}
+
 ::-webkit-scrollbar {
   width: 150px;
   position: absolute;
