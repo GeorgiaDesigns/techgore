@@ -35,24 +35,58 @@ export const QtyControler = styled.span`
   display: flex;
   gap: 0.2rem;
   font-size: 20px;
-  padding-right: 1.5rem;
-
-  div {
-    cursor: pointer;
-  }
 `;
 
 export const CheckoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  border-radius: 15px;
-
-  padding: 2rem 0.2rem;
-
-  background-color: #131313;
-  right: -2rem;
-  z-index: 5;
-  box-shadow: inset -4px 5px 10px 0px rgba(70, 246, 8, 0.72);
   align-items: center;
+
+  h1 {
+    -webkit-text-stroke-width: 4.5px;
+    -webkit-text-stroke-color: #eb21be;
+    font-family: Airnt;
+    font-size: 5rem;
+    margin-top: 2rem;
+    color: transparent;
+  }
+`;
+
+export const Total = styled.div`
+  width: 100%;
+  padding-top: 2rem;
+  text-align: right;
+
+  span {
+    white-space: nowrap;
+    margin: 0;
+    letter-spacing: 0.15em;
+    font-size: 1.5rem;
+
+    font-family: "febre";
+
+    color: limegreen;
+    text-shadow: 0px 0px 10px limegreen;
+  }
+`;
+
+export const Container = styled.div`
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-radius: 15px;
+  font-family: monocode;
+  max-height: 29rem;
+  overflow-y: scroll;
+  padding: 2rem;
+
+  box-shadow: -4px 5px 10px 0px #eb21be;
+  align-items: flex-end;
+
+  ::-webkit-scrollbar {
+    width: 0;
+    left: 0;
+  }
 `;

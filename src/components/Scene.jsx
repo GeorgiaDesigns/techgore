@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 import * as THREE from "three";
 import { useRef, useEffect } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useLocation } from "wouter";
+import { useLoader } from "@react-three/fiber";
 
-function Scene({ collections, setSelectedModel, ...props }) {
+function Scene({ collections }) {
   const objectRef = useRef();
   const modelInstance = new THREE.Object3D();
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
     const loadModels = async () => {
@@ -15,7 +18,8 @@ function Scene({ collections, setSelectedModel, ...props }) {
       for (const item of collections) {
         const gltf = await loader.loadAsync(item.url);
         const model = gltf.scene.clone();
-        model.position.set(modelInstance.children.length * 120, -100, 0);
+        model.name = item.id;
+        model.position.set(modelInstance.children.length * 120, -100, -60);
         modelInstance.attach(model);
         model.userData.onClick = handleModelClick;
       }
@@ -23,20 +27,19 @@ function Scene({ collections, setSelectedModel, ...props }) {
       objectRef.current.add(modelInstance);
     };
 
-    if (collections.length) {
-      loadModels();
-    }
+    loadModels();
 
     return () => {
-      // objectRef.current.clear();
       while (modelInstance.children.length) {
         modelInstance.remove(modelInstance.children[0]);
       }
     };
-  }, [collections]);
+  }, []);
 
   const handleModelClick = (event) => {
     const model = event.object.parent.parent.parent;
+    setLocation(model.name);
+
     // modelInstance.children.forEach((child) => {
     //   if (child !== model) {
     //     child.visible = false;
@@ -45,9 +48,7 @@ function Scene({ collections, setSelectedModel, ...props }) {
     // setSelectedModel(child.clone());
   };
 
-  return (
-    <group ref={objectRef} {...props} onClick={handleModelClick} scale={0.03} />
-  );
+  return <group ref={objectRef} onClick={handleModelClick} scale={0.03} />;
 }
 
 const mapStateToProps = (state) => ({

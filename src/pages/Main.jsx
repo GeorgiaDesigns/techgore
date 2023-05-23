@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
 import Typewriter from "../components/Typewriter";
-import { selectCartItems } from "../redux/cart/cart.selectors";
 
 const Container = styled.div`
   position: relative;

@@ -14,10 +14,9 @@ const StripePay = React.memo(function StripePay({ price }) {
   return (
     <StripeCheckout
       label="Pay Now"
-      name="Trends Clothing"
+      name="Hithka clothing"
       billingAddress
       shippingAddress
-      image="https://svgshare.com/i/CUz.svg"
       description={`Your total is $${price}`}
       amount={priceForStripe}
       panelLabel="Pay Now"

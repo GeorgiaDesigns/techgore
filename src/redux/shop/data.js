@@ -28,7 +28,7 @@ const SHOP_DATA = [
   },
   {
     id: 4,
-    name: "TechBrief Cargo Blue",
+    name: "TechBrief Cargo",
     position: [0, -70, 0],
     stock: 12,
     qrCode: "https://go.echo3d.co/84Vx",
@@ -46,7 +46,7 @@ const SHOP_DATA = [
   },
   {
     id: 6,
-    name: "Cargo shirt green",
+    name: "Cargo shirt",
     position: [0, -120, 0],
     stock: 12,
     qrCode: "https://go.echo3d.co/84Vx",

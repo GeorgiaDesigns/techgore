@@ -18,10 +18,10 @@ export const Experience = () => {
     <ProductDetail model={selectedModel} setSelectedModel={setSelectedModel} />
   ) : (
     <Canvas
-      className="horizontal"
       gl={{ antialias: false }}
       dpr={[1, 1.5]}
       camera={{ position: [0, 0, 4], fov: 50 }}
+      style={{ height: "100vh" }}
     >
       <Suspense fallback={null}>
         <ambientLight intensity={0.5} />
@@ -32,8 +32,11 @@ export const Experience = () => {
           shadow-mapSize={[512, 512]}
           castShadow
         />
-
-        <Scene setSelectedModel={setSelectedModel} />
+        <ScrollControls horizontal pages={3}>
+          <Scroll>
+            <Scene />
+          </Scroll>
+        </ScrollControls>
         <ContactShadows
           rotation-x={Math.PI / 2}
           position={[0, 0, 0]}

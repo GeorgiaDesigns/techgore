@@ -3,18 +3,14 @@ import styled, { css } from "styled-components";
 export const CheckoutItem = styled.div`
   width: 100%;
   display: flex;
-  height: 80px;
-    min-width: 280px;
+    width: 80vw;
     align-items: center;
-    
-    justify-content: space-between;
+    color: #ddd;
+    justify-content: space-around;
   padding: 1rem;
-background: #D9D9D9;
-box-shadow: inset 0px 2px 10px rgba(0, 0, 0, 0.25);
+box-shadow: inset 0px 2px 10px rgba(0, 0, 0, 0.9);
 border-radius: 15px;
-  img {
-    width: 30%;
-  } 
+
    .item-details {
     width: 50%;
     display: flex;
@@ -22,14 +18,11 @@ border-radius: 15px;
     align-items: flex-start;
     justify-content: center;
     padding: 10px 20px;
-
-    .name {
-      font-size: 16px;
-      white-space: nowrap;
-    }
 `;
 
-export const TrashButton = styled.button``;
+export const Img = styled.div`
+  max-width: 10rem;
+`;
 
 export const QtyControler = styled.span`
   display: flex;
