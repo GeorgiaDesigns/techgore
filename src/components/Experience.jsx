@@ -1,12 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense } from "react";
 import { Preload } from "@react-three/drei";
-import {
-  ScrollControls,
-  Scroll,
-  Environment,
-  ContactShadows,
-} from "@react-three/drei";
+import { ScrollControls, Scroll, ContactShadows } from "@react-three/drei";
 import Scene from "./Scene";
 import { useState } from "react";
 import ProductDetail from "./ProductDetail";

@@ -51,12 +51,6 @@ export const Main = () => {
         <h1>HITCHKA</h1>
         <h1>HITCHKA</h1>
       </Title>
-
-      {/* <Lady
-        ref={scrollContainerRef}
-        src="/img/introLady.png"
-        style={{ transform: `translateY(${offsetY * 0.8}px)` }}
-      /> */}
     </Container>
   );
 };
