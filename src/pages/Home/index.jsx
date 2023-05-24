@@ -82,7 +82,7 @@ const Home = () => {
         <section name="Home">
           <Main />
         </section>,
-        <section style={{ height: "100vh" }}>
+        <section name="Storyline" style={{ height: "100vh" }}>
           <Container>
             <TypeWriter>
               Technological advancements. Revolution. Power change.
@@ -121,6 +121,7 @@ const Home = () => {
             display: "grid",
             gridTemplateColumns: "1fr",
           }}
+          name="Our team"
         >
           <img
             src="/img/hand.png"

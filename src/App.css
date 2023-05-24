@@ -13,11 +13,6 @@
   src: url(./fonts/Monocode/Monocode-Regular-V01.02b.ttf);
 }
 
-@font-face {
-  font-family: "kyiv";
-  src: url(./fonts/Kyiv-Machine/KyivMachine-d9wOX.ttf);
-}
-
 #root {
   height: 100vh;
   background: #131313;

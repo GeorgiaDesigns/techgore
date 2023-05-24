@@ -51,6 +51,11 @@ export const CheckoutContainer = styled.div`
     margin-top: 2rem;
     color: transparent;
   }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    left: 0;
+  }
 `;
 
 export const Total = styled.div`
@@ -84,9 +89,4 @@ export const Container = styled.div`
 
   box-shadow: -4px 5px 10px 0px #eb21be;
   align-items: flex-end;
-
-  ::-webkit-scrollbar {
-    width: 0;
-    left: 0;
-  }
 `;

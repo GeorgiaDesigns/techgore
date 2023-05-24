@@ -3,8 +3,8 @@ nav {
   top: 2rem;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   width: 100%;
+  z-index: 5;
 }
 
 .sideIcons {
