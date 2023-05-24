@@ -2,12 +2,12 @@ import React from "react";
 import Page from "../../components/PageTemplate";
 import { Main } from "../Main";
 import { Experience } from "../../components/Experience";
-import Typewriter from "../../components/Typewriter";
+import Team from "../../components/Team";
 import styled, { css } from "styled-components";
 
 const Container = styled.div`
   position: relative;
-  height: 100vh;
+  height: 80vh;
 `;
 
 const Snake = styled.img`
@@ -23,23 +23,56 @@ const ImageText = styled.div`
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: url("https://i.pinimg.com/564x/94/c8/a4/94c8a48e939f45f192a16ebaa09bc936.jpg");
+  text-align: right;
+  padding: 0 3rem;
+  background-image: url("https://i.pinimg.com/564x/85/77/3e/85773eb0756bca6b4b15eab02895a7aa.jpg");
 `;
 export const Section = styled.section`
   display: flex;
   align-items: flex-end;
 `;
 
+export const TypeWriter = styled.p`
+  overflow: hidden;
+  letter-spacing: 0.15em;
+  font-size: 1.5rem;
+  text-align: center;
+  top: 50%;
+  position: relative;
+  font-family: "febre";
+
+  color: limegreen;
+  text-shadow: 0px 0px 10px limegreen;
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+`;
+
 export const Text = styled.p`
   overflow: hidden;
   font-size: 1rem;
-
-  //   border-right: 0.15em solid limegreen;
-  margin: 0 auto;
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  width: 30rem;
+  padding: 3rem;
   color: #ddd;
-
   font-family: "monocode";
+
+  &:nth-of-type() {
+  }
+`;
+
+export const TextParagraph = styled.p`
+  overflow: hidden;
+  font-size: 1rem;
+  width: 80vw;
+  color: #ddd;
+  font-family: "monocode";
+  text-align: center;
 `;
 
 const Home = () => {
@@ -49,13 +82,12 @@ const Home = () => {
         <section name="Home">
           <Main />
         </section>,
-        <section>
+        <section style={{ height: "100vh" }}>
           <Container>
-            <Typewriter
-              title="Technological advancements. Revolution. Power change. Cyborgs.
-              Domination."
-            />
-            <ImageText></ImageText>
+            <TypeWriter>
+              Technological advancements. Revolution. Power change.
+              <br /> Cyborgs. Domination.
+            </TypeWriter>
             <Text>
               Domination is what defines the end of this story. Domination of
               the little known Cyborgs.
@@ -72,46 +104,67 @@ const Home = () => {
                 }
               }
             />
-
-            <Text>
-              And that's how skin became metal, veins became electrical
-              currents, and humans became Cyborgs.
-            </Text>
-          </Container>
-        </section>,
-
-        <section>
-          <Container>
             <Text>
               In this dark era, survival hinges on adaptation. We, the remnants
               of humanity, must become chameleons in this artificial world,
               wearing the facade of technology upon our flesh.
             </Text>
-
-            <img
-              src="/img/hand.png"
-              style={{ height: "18rem", right: "9rem", position: "absolute" }}
-            />
           </Container>
         </section>,
         <section name="Collections" horizontal="true">
           <ImageText>COLLECTION APOCOLYPSE</ImageText>
+
           <Experience />
         </section>,
-        <Section>
-          <Text>
+        <section
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr",
+          }}
+        >
+          <img
+            src="/img/hand.png"
+            style={{ height: "18rem", marginLeft: "auto" }}
+          />
+          <TextParagraph
+            style={{
+              marginTop: "-10rem",
+              marginLeft: "5rem",
+              position: "relative",
+              width: "55vw",
+            }}
+          >
             We call upon you, to join the ranks of the adapted. Step into the
             world of the cyborg, where fashion becomes armor and innovation
             becomes art. Adapt, evolve, and acquire our clothing to become part
             of the new society.
-          </Text>
-        </Section>,
+          </TextParagraph>
+          <TypeWriter
+            style={{
+              top: "0",
+            }}
+          >
+            Our team
+          </TypeWriter>
+
+          <Team />
+        </section>,
         <Section>
+          <Text>
+            And that's how skin became metal, veins became electrical currents,
+            and humans became Cyborgs.
+          </Text>
+
           <img
             src="/img/looking.png"
-            style={{ height: "18rem", right: "9rem" }}
+            style={{ height: "32rem", right: "9rem" }}
           />
-          <Text>
+          <Text
+            style={{
+              bottom: "10rem",
+              position: "relative",
+            }}
+          >
             Together, we will rise above the tyranny of AI and forge a future
             where humanity, in its augmented form, thrives once more.
           </Text>

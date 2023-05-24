@@ -10,6 +10,17 @@ const Lady = styled.img`
   height: 38rem;
   bottom: 0;
   right: 22%;
+
+  // animation: fadeIn ease 5s;
+
+  // @keyframes fadeIn {
+  //   0% {
+  //     opacity: 1;
+  //   }
+  //   100% {
+  //     opacity: 0;
+  //   }
+  // }
 `;
 
 const Page = ({ sections }) => {
@@ -83,8 +94,8 @@ const Page = ({ sections }) => {
           <div
             key={index}
             style={{
-              height: "100vh",
-              width: section.props.horizontal ? "100vw" : "100%",
+              width: "100%",
+              marginRight: "15rem",
             }}
           >
             {section}
@@ -112,7 +123,7 @@ const Page = ({ sections }) => {
             offsetY < 254
               ? `translateX(${offsetY * 0.8}px)`
               : `translateX(255*0.8px)`,
-          display: offsetY < 254 ? `inherit` : `none`,
+          opacity: offsetY < 500 ? 1 : 0,
         }}
       />
     </div>

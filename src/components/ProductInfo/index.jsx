@@ -88,9 +88,7 @@ const ProductInfo = ({ item, meshColors, addItem, thumbnail }) => {
           <QRCode
             size={256}
             style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-            value={
-              "intent://arvr.google.com/scene-viewer/1.1?file=https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Avocado/glTF/Avocado.gltf#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;"
-            }
+            value={item.qrCode}
             viewBox={`0 0 256 256`}
           />
         </div>

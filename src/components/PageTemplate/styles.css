@@ -43,11 +43,6 @@ nav {
   height: 100vh;
 }
 
-section {
-  width: 100vw;
-  height: 100vh;
-}
-
 ::-webkit-scrollbar {
   width: 150px;
   position: absolute;
