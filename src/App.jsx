@@ -12,19 +12,19 @@ import { Route, Switch } from "wouter";
 
 function App() {
   return (
-    // <Switch>
-    //   <Route path="/" component={Home} />
-    //   <Route path="/checkout" component={Checkout} />
-    //   <Route path="/:productId" component={ProductDetail} />
-    //   <Route component={NotFound} />
-    // </Switch>
-
     <Switch>
-      <Route path="/~ensait00046" component={Home} />
-      <Route path="/~ensait00046/checkout" component={Checkout} />
-      <Route path="/~ensait00046/:productId" component={ProductDetail} />
+      <Route path="/" component={Home} />
+      <Route path="/checkout" component={Checkout} />
+      <Route path="/:productId" component={ProductDetail} />
       <Route component={NotFound} />
     </Switch>
+
+    // <Switch>
+    //   <Route path="/~ensait00046" component={Home} />
+    //   <Route path="/~ensait00046/checkout" component={Checkout} />
+    //   <Route path="/~ensait00046/:productId" component={ProductDetail} />
+    //   <Route component={NotFound} />
+    // </Switch>
   );
 }
 

@@ -36,6 +36,5 @@
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.1",
     "vite": "^4.2.0"
-  },
-  "homepage": "http://ecom.ensait.fr/~ensait00046/"
+  }
 }
